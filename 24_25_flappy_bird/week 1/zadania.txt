@@ -1,0 +1,10 @@
+
+# ============= ZADANIA DO ZROBIENIA =============
+# 1. Zmień rozmiar okna
+# 2. Dodaj inne kolory - spóbuj dostać żółty
+# 3. Przesuń Flappiego w inne miejsce
+# 4. Ustaw Flappiego na środku ekranu (czy obie zmienne będa się zmieniać - X i Y?)
+# 5. Spraw żeby kwadrat poruszał się w dół
+# 6. Spraw żeby kwadrat przyspieszał w dół (poruszał się coraz szybciej i jak dotrze na dół  - przenieś go na górę)
+# 7. Spraw żeby spacja powodowała "skok" flappiego
+# 8. Kiedy Flappy dotrze na górę albo na dół zatrzymaj go (ma przestać sie poruszać i nie wystawać poza ekran)
