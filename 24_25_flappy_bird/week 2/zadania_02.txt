@@ -8,12 +8,4 @@
 # 1.1 Dodaj kolor zielony jako zmienną
 # 1.2 Dodaj zmienne rury (Wartosc X i Y)
 # 1.3 Narysuj rurę na ekranie korzystajać z zmiennych rury
-
-# 2. Stwórz klasę Bird/Ptak i dodaj funkcje/metody, które twoim zdnaiem powinien mieć flappy: skakanie, aktualziacja połozenia, rysowanie?
-# 3. Przekształć kod tak żeby korzystał z klasy dla tworzenia Flappiego
-
-# 4. Dodaj klasę dla Pipe/Rura
-# 4.1 Zastanów się jakie wartości powinny być stałe, jakie zmienne
-# 4.2 Jaie metody powinny być w rusze: przesuwanie w lewo, rysowanie, sprawdzanie czy jest poza ekranem
-
-# na razie Flappy ma bez problemu przelatywać przez rury, nie wchodzić w kolizję z nimi
+# 1.4 Spraw zeby rura przesówała siew lewo (i wracała na prawo po wyjściu poza ekran)

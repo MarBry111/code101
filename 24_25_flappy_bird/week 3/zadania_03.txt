@@ -1,0 +1,10 @@
+# ============= ZADANIA DO ZROBIENIA =============
+
+# 1. Stwórz klasę Bird/Ptak i dodaj funkcje/metody, które twoim zdnaiem powinien mieć flappy: skakanie, aktualziacja połozenia, rysowanie?
+# 2. Przekształć kod tak żeby korzystał z klasy dla tworzenia Flappiego
+
+# 3. Dodaj klasę dla Pipe/Rura
+# 3.1 Zastanów się jakie wartości powinny być stałe, jakie zmienne
+# 3.2 Jaie metody powinny być w rusze: przesuwanie w lewo, rysowanie, sprawdzanie czy jest poza ekranem
+
+# na razie Flappy ma bez problemu przelatywać przez rury, nie wchodzić w kolizję z nimi
