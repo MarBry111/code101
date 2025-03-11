@@ -1,0 +1,7 @@
+# ============= ZADANIA DO ZROBIENIA =============
+
+# 1. Dodaj klasę dla Pipe/Rura
+# 1.1 Zastanów się jakie wartości powinny być stałe, jakie zmienne
+# 1.2 Jaie metody powinny być w rusze: przesuwanie w lewo, rysowanie, sprawdzanie czy jest poza ekranem?
+
+# 2. Potencjalnie rozbudowanie gry o kolizje

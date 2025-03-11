@@ -26,43 +26,17 @@ NIEBIESKI = (0, 0, 255)
 ZOTLY = (255, 255, 0)
 ZIELONY = (0, 255, 0)
 
-class Ptak:
-    def __init__(self):
-        self.ROZMIAR = 40
-        self.KOLOR = (255, 255, 0)
+FLAPPY_ROZMIAR = 40
 
-        # ustawiamy flappiego na środku ekranu
-        # odpowiednio wysokość/2 - połowa flappiego, i szerokosć/2 - połowa flappiego
-        self.Y = WYSOKOSC // 2 - self.ROZMIAR  // 2
-        self.X = SZEROKOSC // 2 - self.ROZMIAR  // 2
+# ustawiamy flappiego na środku ekranu
+# odpowiednio wysokość/2 - połowa flappiego, i szerokosć/2 - połowa flappiego
+FLAPPY_Y = WYSOKOSC // 2 - FLAPPY_ROZMIAR // 2
+FLAPPY_X = SZEROKOSC // 2 - FLAPPY_ROZMIAR // 2
 
-        # początkowa prędkosć i stałe związane z prędkością
-        self.predkosc = 1
-        self.SILA_SKOKU = 60  # o ile do góry skoczy FLAPPY
-        self.PRZYSPIESZENIE = 0.1
-
-    def skacz(self):
-        # przesuń flappiego do góry o siłę skoku
-        self.Y = self.Y - self.SILA_SKOKU
-        # wyseruj prędkosć spadania
-        self.predkosc = 0
-
-    def spadaj(self):
-        # Sprawdź czy flappy dotyka dolnej krawędzi ekranu
-        if self.Y >= WYSOKOSC - self.ROZMIAR:
-            self.Y = WYSOKOSC - self.ROZMIAR
-            predkosc = 0
-        elif self.Y <= 0:
-            self.Y = 0
-            self.predkosc = 0
-
-        # porusznie flappim
-        self.predkosc = self.predkosc + self.PRZYSPIESZENIE
-        self.Y = self.Y + self.predkosc
-
-    def rysuj(self, ekran):
-        pygame.draw.rect(ekran, self.KOLOR, (self.X, self.Y, self.ROZMIAR, self.ROZMIAR))
-
+# początkowa prędkosć i stałe związane z prędkością
+predkosc = 1
+SILA_SKOKU = 60  # o ile do góry skoczy FLAPPY
+PRZYSPIESZENIE = 0.1
 
 # zmienne rury
 RURA_Y = 0
@@ -70,8 +44,6 @@ RURA_X = SZEROKOSC
 RURA_SZEROKOSC = 50
 RURA_WYSOKOSC = WYSOKOSC
 RURA_PREDKOSC = 5
-
-flappy = Ptak()
 
 # Główna pętla gry
 gra_dziala = True
@@ -84,9 +56,22 @@ while gra_dziala:
             gra_dziala = False
         # po naciśnieciu SPACJI
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            flappy.skacz()
+            # przesuń flappiego do góry o siłę skoku
+            FLAPPY_Y = FLAPPY_Y - SILA_SKOKU
+            # wyseruj prędkosć spadania
+            predkosc = 0
 
-    flappy.spadaj()
+    # Sprawdź czy flappy dotyka dolnej krawędzi ekranu
+    if FLAPPY_Y >= WYSOKOSC - FLAPPY_ROZMIAR:
+        FLAPPY_Y = WYSOKOSC - FLAPPY_ROZMIAR
+        predkosc = 0
+    elif FLAPPY_Y <= 0:
+        FLAPPY_Y = 0
+        predkosc = 0
+
+    # porusznie flappim
+    predkosc = predkosc + PRZYSPIESZENIE
+    FLAPPY_Y = FLAPPY_Y + predkosc
 
     # poruszanie rury
     RURA_X = RURA_X - RURA_PREDKOSC
@@ -98,7 +83,7 @@ while gra_dziala:
     ekran.fill(CZARNY)
 
     # Rysujemy flappiego
-    flappy.rysuj(ekran)
+    pygame.draw.rect(ekran, ZOTLY, (FLAPPY_X, FLAPPY_Y, FLAPPY_ROZMIAR, FLAPPY_ROZMIAR))
     # Rysujemy rurę
     pygame.draw.rect(ekran, ZIELONY, (RURA_X, RURA_Y, RURA_SZEROKOSC, RURA_WYSOKOSC))
 
