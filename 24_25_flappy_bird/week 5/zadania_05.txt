@@ -1,0 +1,20 @@
+# ============= ZADANIA DO ZROBIENIA =============
+
+1. Dodać przerwę do Rury (niektórzy mają już)
+ - zaimportuj moduł numpy
+ - użyj go do generowania randomowego rozmiaru górnej części Rury
+ - trochę matemtyki i masz przerwę
+ - narysuj 2 kawałki rury z uwzględnieniem przerwy
+
+2. porzakdowanie kodu:
+ - przneieś klasy do innego pliku
+ - przenieś stałe do innego pliku
+ - zrób odpowiednie improty miedzy nimi
+
+3. zaczynamy myśleć nad punktami i kolizjami
+ - dodaj punkty (kiedy punkty mają się naliczać?)
+ - jak zrobić żeby naliczyły sie tylko raz?
+ - mozę dodać życia flappiemu? + je wyświtlać? (np 3)
+ - jakis ekran zakonczenia gry?
+ - + moze jakisekran rozpoczecia gry?
+ - kolizje miedzy ptakiem a rurą 
