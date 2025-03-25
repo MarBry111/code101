@@ -1,0 +1,12 @@
+# ============= ZADANIA DO ZROBIENIA =============
+
+1. porzadkowanie kodu:
+ - przneieś klasy do innego pliku
+ - przenieś stałe do innego pliku
+ - zrób odpowiednie improty miedzy nimi
+
+2. zaczynamy myśleć nad kolizjami
+ - kolizje miedzy ptakiem a rurą 
+ - mozę dodać życia flappiemu? + je wyświtlać? (np 3)
+ - jakis ekran zakonczenia gry?
+ - + moze jakis ekran rozpoczecia gry?
