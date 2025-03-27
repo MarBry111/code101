@@ -1,31 +1,6 @@
+from const import *
 import pygame
-import random
-
-# Włączamy silnik Pygame
-pygame.init()
-
-# Ustawiamy rozmiar okna naszej gry i FPSy
-SZEROKOSC = 600
-WYSOKOSC = 600
-FPS = 60
-
-# Zegar gry
-zegar = pygame.time.Clock()
-
-# Tworzymy okno gry, gdzie wszystko będziemy wyświetlać
-ekran = pygame.display.set_mode((SZEROKOSC, WYSOKOSC))
-
-# Ustawiamy tytuł okna
-pygame.display.set_caption('Flappy Bird')
-
-# Wybieramy kolory, romziar i połozenie Flappiego
-# Kolory w Pygame to trzy liczby: (R, G, B) z zakresu 0-255
-BIALY = (255, 255, 255) 
-CZARNY = (0, 0 , 0)
-
-NIEBIESKI = (0, 0, 255)
-ZOTLY = (255, 255, 0)
-ZIELONY = (0, 255, 0)
+import random 
 
 class Ptak:
     def __init__(self):
@@ -90,37 +65,3 @@ class Rura:
     def rysuj(self, ekran):
         pygame.draw.rect(ekran, self.KOLOR, (self.X, self.Y, self.SZEROKOSC, self.WYSOKOSC1))
         pygame.draw.rect(ekran, self.KOLOR, (self.X, self.Y + self.WYSOKOSC1 + self.PRZERWA, self.SZEROKOSC, self.WYSOKOSC2))
-
-
-flappy = Ptak()
-rura = Rura()
-
-# Główna pętla gry
-gra_dziala = True
-
-while gra_dziala:
-    # -------- Sprawdzamy wydarzenia (np. kliknięcia) --------
-    for event in pygame.event.get():
-        # Jeśli ktoś kliknie X na oknie
-        if event.type == pygame.QUIT:
-            gra_dziala = False
-        # po naciśnieciu SPACJI
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            flappy.skacz()
-
-    flappy.spadaj()
-    rura.poruszaj()
-
-    # -------- Rysujemy na ekranie --------
-    ekran.fill(CZARNY)
-
-    flappy.rysuj(ekran)
-    rura.rysuj(ekran)
-
-    # -------- Pokazujemy wszystko na ekranie --------
-    pygame.display.update()
-    zegar.tick(FPS)
-
-pygame.quit()
-quit()
-
