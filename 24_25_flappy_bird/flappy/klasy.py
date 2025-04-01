@@ -24,6 +24,10 @@ class Ptak:
         self.predkosc = 0
 
     def spadaj(self):
+        # porusznie flappim
+        self.predkosc = self.predkosc + self.PRZYSPIESZENIE
+        self.Y = self.Y + self.predkosc
+
         # Sprawdź czy flappy dotyka dolnej krawędzi ekranu
         if self.Y >= WYSOKOSC - self.ROZMIAR:
             self.Y = WYSOKOSC - self.ROZMIAR
@@ -31,10 +35,6 @@ class Ptak:
         elif self.Y <= 0:
             self.Y = 0
             self.predkosc = 0
-
-        # porusznie flappim
-        self.predkosc = self.predkosc + self.PRZYSPIESZENIE
-        self.Y = self.Y + self.predkosc
 
     def rysuj(self, ekran):
         pygame.draw.rect(ekran, self.KOLOR, (self.X, self.Y, self.ROZMIAR, self.ROZMIAR))
