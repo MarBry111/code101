@@ -1,0 +1,17 @@
+'ustawienie okna
+GraphicsWindow.Title = "Pierwszy program"
+GraphicsWindow.Width = 500
+GraphicsWindow.Height = 600
+
+' ustawienie kolorow
+GraphicsWindow.BackgroundColor = "HotPink"
+GraphicsWindow.PenColor = "Blue"
+GraphicsWindow.PenWidth = 8
+GraphicsWindow.BrushColor = "Yellow"
+GraphicsWindow.CanResize = "False"
+
+' rysowanie na ekranie
+GraphicsWindow.FontSize = 30 
+GraphicsWindow.DrawLine(0,0,500,600)
+GraphicsWindow.DrawRectangle(18,25,190,30)
+GraphicsWindow.DrawText(15,15,"Hello World!")
