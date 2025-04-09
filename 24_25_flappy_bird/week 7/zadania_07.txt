@@ -2,10 +2,4 @@
 
 1. zaczynamy myśleć nad kolizjami
  - kolizje miedzy ptakiem a rurą 
- - mozę dodać życia flappiemu? + je wyświtlać? (np 3)
  - jakis ekran zakonczenia gry?
-
-2. Porządkowanie kodu do funkcji 
- - + moze dodatkowy plik z funkcjami?
-
-3. Dodanie wiecej rur?

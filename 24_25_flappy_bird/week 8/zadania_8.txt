@@ -1,0 +1,9 @@
+Finalne zadania:
+ 
+1. może dodać życia flappiemu? + je wyświtlać? (np 3)
+  - jak sprawic żeby kolizja tylko raz była liczona
+
+2. Porządkowanie kodu do funkcji 
+  - + moze dodatkowy plik z funkcjami?
+
+3. Dodanie wiecej rur?
