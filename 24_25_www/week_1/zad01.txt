@@ -1,0 +1,32 @@
+Zadania:
+1. wymyśl tematykę storny
+
+2. zbadajmy rózne storny:
+    - https://www.mozilla.org/pl/
+    - https://www.onet.pl/
+    - https://starwars.fandom.com/wiki/Main_Page
+
+3. Stwórz plik index.html zawierający Twoją pierwszą stronę www
+    - skorzystaj z https://www.w3schools.com/html/html_examples.asp i/lub https://how2html.pl/div-sekcje-html5/
+    - zbuduj stornę korzystajac z:
+        - <html>:
+            - <head>: ustawienia strony
+                <meta>
+                <title>
+                + <styles>
+            - <body>:
+                - <header>: tytuł, logo, navigacja po stronie (menu)
+                - <main>: cały content strony
+                - <aside>: content na boku storny
+                - <footer>: autor, concluding content, kontakt info etc.
+
+4. Podstawy za nami, lecimy dalej:
+    - sprawdzic o co chodzi z "Lorem Ipsum dolor set ame..."
+    - w <body> dodaj:
+        - <div class=""> : rodzic dla innych elementów, ułatwi ich stylowanie (division of the section)
+            - w <header>
+                - menu
+                - banner
+        - w <main> dodaj <section> dla róznych sekcji
+ 
+

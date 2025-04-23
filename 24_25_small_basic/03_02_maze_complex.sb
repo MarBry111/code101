@@ -1,0 +1,138 @@
+' Maze Game in Small Basic
+' Use arrow keys to navigate through the maze to the red square
+
+' Initialize graphics window
+GraphicsWindow.Title = "Maze Game"
+GraphicsWindow.Width = 500
+GraphicsWindow.Height = 500
+GraphicsWindow.CanResize = "False"
+GraphicsWindow.BackgroundColor = "White"
+
+' Set up grid parameters
+cellSize = 40
+gridWidth = 10
+gridHeight = 10
+
+' Create the maze using a more efficient approach
+' We'll use string representation for each row and pull the data during drawing
+' 0 = path, 1 = wall
+
+' Define row patterns
+row[1] = "0111111111"
+row[2] = "0000010001"
+row[3] = "1111010101"
+row[4] = "1000010101"
+row[5] = "1011110101"
+row[6] = "1000000101"
+row[7] = "1111111101"
+row[8] = "1000000001"
+row[9] = "1011111101"
+row[10]= "1000000000"
+
+' Set player position
+playerX = 1
+playerY = 1
+
+' Set goal position (end of maze)
+goalX = 10
+goalY = 10
+
+' Initialize game status
+gameOver = "False"
+
+' Draw the initial maze
+DrawMaze()
+
+' Register keyboard events
+GraphicsWindow.KeyDown = OnKeyDown
+
+' Main game loop
+While (gameOver = "False")
+  Program.Delay(10)
+EndWhile
+
+' Subroutine to draw the maze
+Sub DrawMaze
+  ' Clear the window
+  GraphicsWindow.Clear()
+  
+  ' Draw the maze
+  For y = 1 To gridHeight
+    rowPattern = row[y]
+    
+    For x = 1 To gridWidth
+      ' Get the cell value (0 or 1) from the row pattern
+      cellValue = Text.GetSubText(rowPattern, x, 1)
+      
+      ' Convert x,y to screen coordinates
+      screenX = (x - 1) * cellSize
+      screenY = (y - 1) * cellSize
+      
+      ' Draw walls (black)
+      If (cellValue = "1") Then
+        GraphicsWindow.BrushColor = "Black"
+        GraphicsWindow.FillRectangle(screenX, screenY, cellSize, cellSize)
+      EndIf
+      
+      ' Draw paths (light gray)
+      If (cellValue = "0") Then
+        GraphicsWindow.BrushColor = "LightGray"
+        GraphicsWindow.FillRectangle(screenX, screenY, cellSize, cellSize)
+      EndIf
+    EndFor
+  EndFor
+  
+  ' Draw the goal (red square)
+  GraphicsWindow.BrushColor = "Red"
+  GraphicsWindow.FillRectangle((goalX - 1) * cellSize, (goalY - 1) * cellSize, cellSize, cellSize)
+  
+  ' Draw the player (blue square)
+  GraphicsWindow.BrushColor = "Blue"
+  GraphicsWindow.FillRectangle((playerX - 1) * cellSize, (playerY - 1) * cellSize, cellSize, cellSize)
+EndSub
+
+' Keyboard event handler
+Sub OnKeyDown
+  key = GraphicsWindow.LastKey
+  
+  ' Store current position
+  oldX = playerX
+  oldY = playerY
+  
+  ' Move player based on key press
+  If (key = "Up") Then
+    playerY = playerY - 1
+  ElseIf (key = "Down") Then
+    playerY = playerY + 1
+  ElseIf (key = "Left") Then
+    playerX = playerX - 1
+  ElseIf (key = "Right") Then
+    playerX = playerX + 1
+  EndIf
+  
+  ' Check if the move is valid (within bounds)
+  If (playerX < 1 Or playerX > gridWidth Or playerY < 1 Or playerY > gridHeight) Then
+    ' Out of bounds, revert move
+    playerX = oldX
+    playerY = oldY
+  Else
+    ' Within bounds, now check if it's not a wall
+    rowPattern = row[playerY]
+    cellValue = Text.GetSubText(rowPattern, playerX, 1)
+    
+    If (cellValue = "1") Then
+      ' Hit a wall, revert move
+      playerX = oldX
+      playerY = oldY
+    EndIf
+  EndIf
+  
+  ' Check if player reached the goal
+  If (playerX = goalX And playerY = goalY) Then
+    gameOver = "True"
+    GraphicsWindow.ShowMessage("Congratulations! You reached the end of the labyrinth!", "You Won!")
+  EndIf
+  
+  ' Redraw the maze
+  DrawMaze()
+EndSub
