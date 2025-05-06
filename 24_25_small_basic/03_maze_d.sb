@@ -1,6 +1,3 @@
-' Simple Maze Game in Small Basic with Color Detection
-' Use arrow keys to navigate through the maze to the red square
-
 ' Initialize graphics window
 GraphicsWindow.Title = "Simple Maze Game"
 GraphicsWindow.Width = 400
@@ -13,59 +10,48 @@ gridWidth = 8
 gridHeight = 8
 
 ' Set player position
-playerX = 1
-playerY = 1
+playerX = 0
+playerY = 0
 
 ' Set goal position
-goalX = 7
-goalY = 7
+goalX = 6
+goalY = 6
 
-' Initialize game status
-gameOver = "False"
-
-' Draw the initial maze and setup event handler
 DrawMaze()
-GraphicsWindow.KeyDown = OnKeyDown
+GraphicsWindow.KeyDown = Ruch
 
-' Main game loop
-' While (gameOver = "False")
-'  Program.Delay(10)
-'EndWhile
-
-' Subroutine to draw the maze
+'A Draw maze
 Sub DrawMaze
-  ' Clear the window
+  ' 1 Clear the window
   GraphicsWindow.Clear()
-  
-  ' Draw the background (paths)
+
+  ' 2 Draw the background (paths)
   GraphicsWindow.BrushColor = "LightGray"
   GraphicsWindow.FillRectangle(0, 0, gridWidth * cellSize, gridHeight * cellSize)
-  
-  ' Draw walls (just a few simple walls)
+
+  ' 3 Draw walls (just a few simple walls)
   GraphicsWindow.BrushColor = "Black"
-  
-  ' Horizontal walls
+
+  ' 4 Horizontal walls
   GraphicsWindow.FillRectangle(0, 2*cellSize, 5*cellSize, cellSize)
-  GraphicsWindow.FillRectangle(2*cellSize, 4*cellSize, 5*cellSize, cellSize)
-  GraphicsWindow.FillRectangle(0, 6*cellSize, 4*cellSize, cellSize)
-  
-  ' Vertical walls
-  'GraphicsWindow.FillRectangle(3*cellSize, 0, cellSize, 2*cellSize)
-  GraphicsWindow.FillRectangle(6*cellSize, 1*cellSize, cellSize, 3*cellSize)
-  GraphicsWindow.FillRectangle(2*cellSize, 5*cellSize, cellSize, 1*cellSize)
-  GraphicsWindow.FillRectangle(4*cellSize, 6*cellSize, cellSize, 2*cellSize)
-  
-  ' Draw the goal (red square)
+  'GraphicsWindow.FillRectangle(2*cellSize, 4*cellSize, 5*cellSize, cellSize)
+  'GraphicsWindow.FillRectangle(0, 6*cellSize, 4*cellSize, cellSize)
+
+  ' 5 Vertical walls
+  'GraphicsWindow.FillRectangle(6*cellSize, 1*cellSize, cellSize, 3*cellSize)
+  'GraphicsWindow.FillRectangle(2*cellSize, 5*cellSize, cellSize, 1*cellSize)
+  'GraphicsWindow.FillRectangle(4*cellSize, 6*cellSize, cellSize, 2*cellSize)
+
+  '6 Draw the goal (red square)
   GraphicsWindow.BrushColor = "Red"
-  GraphicsWindow.FillRectangle((goalX - 1) * cellSize, (goalY - 1) * cellSize, cellSize, cellSize)
-  
-  ' Draw the player (blue square)
+  GraphicsWindow.FillRectangle(goalX * cellSize, goalY * cellSize, cellSize, cellSize)
+    
+  '7  Draw the player (blue square)
   GraphicsWindow.BrushColor = "Blue"
-  GraphicsWindow.FillRectangle((playerX - 1) * cellSize, (playerY - 1) * cellSize, cellSize, cellSize)
+  GraphicsWindow.FillRectangle(playerX * cellSize, playerY * cellSize, cellSize, cellSize)
 EndSub
 
-' Keyboard event handler
-Sub OnKeyDown
+Sub Ruch
   key = GraphicsWindow.LastKey
   
   ' Store current position
@@ -84,14 +70,14 @@ Sub OnKeyDown
   EndIf
   
   ' Check if the move is valid (within bounds)
-  If (playerX < 1 Or playerX > gridWidth Or playerY < 1 Or playerY > gridHeight) Then
+  If (playerX < 0 Or playerX > (gridWidth-1) Or playerY < 0 Or playerY > (gridHeight-1)) Then
     ' Out of bounds, revert move
     playerX = oldX
     playerY = oldY
   Else
     ' Check color at target position
-    targetX = (playerX - 1) * cellSize + cellSize/2
-    targetY = (playerY - 1) * cellSize + cellSize/2
+    targetX = playerX * cellSize + cellSize/2
+    targetY = playerY * cellSize + cellSize/2
     
     ' Get the color at the target position
     colorAtTarget = GraphicsWindow.GetPixel(targetX, targetY)
@@ -109,6 +95,5 @@ Sub OnKeyDown
     EndIf
   EndIf
   
-  ' Redraw the maze
   DrawMaze()
 EndSub

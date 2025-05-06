@@ -1,0 +1,9 @@
+Zadania:
+
+1. Rozbuduj dalej stronę
+
+2. Dodaj conajmniej jedną podstronę
+
+3. Dodaj style w html 
+
+4. Dodaj plik css z stylami
