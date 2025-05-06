@@ -1,6 +1,8 @@
 Zadania:
 
 1. Rozbuduj dalej stronę
+    - strona ma zawierać menu <nav> w <body>
+    - wewnatrz linki do innnych podstron (conajmniej jedna powinna być poza indexem) albo sekcji (dodaj id do elementu i użyj #)
 
 2. Dodaj conajmniej jedną podstronę
 
