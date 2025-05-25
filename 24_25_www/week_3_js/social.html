@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Simple Social Posts</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 10px; }
+        .post { border: 1px solid #ccc; margin: 10px 0; padding: 10px; }
+        .comment { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Super Simple Social Posts</h1>
+    
+    <div>
+        <h3>New Post</h3>
+        <textarea id="post-text" rows="3" cols="40"></textarea>
+        <button onclick="addPost()">Post</button>
+    </div>
+    
+    <div id="posts">
+        <!-- Posts will appear here -->
+    </div>
+
+    <script>
+        // Initial post to show
+        let posts = [
+            {
+                id: 1,
+                text: "This is a sample post",
+                likes: 0,
+                dislikes: 0,
+                comments: []
+            }
+        ];
+        
+        // Counter for new post IDs
+        let nextId = 2;
+        
+        // Display all posts
+        function showPosts() {
+            let postsDiv = document.getElementById("posts");
+            postsDiv.innerHTML = "";
+            
+            for(let post of posts) {
+                let postDiv = document.createElement("div");
+                postDiv.className = "post";
+                
+                // Post content
+                postDiv.innerHTML = `
+                    <p>${post.text}</p>
+                    <button onclick="likePost(${post.id})">Like (${post.likes})</button>
+                    <button onclick="dislikePost(${post.id})">Dislike (${post.dislikes})</button>
+                    <div>
+                        <input type="text" id="comment-${post.id}" placeholder="Add comment">
+                        <button onclick="addComment(${post.id})">Comment</button>
+                    </div>
+                `;
+                
+                // Comments
+                for(let comment of post.comments) {
+                    let commentDiv = document.createElement("div");
+                    commentDiv.className = "comment";
+                    commentDiv.textContent = comment;
+                    postDiv.appendChild(commentDiv);
+                }
+                
+                postsDiv.appendChild(postDiv);
+            }
+        }
+        
+        // Add a new post
+        function addPost() {
+            let text = document.getElementById("post-text").value;
+            if(text.trim() === "") return;
+            
+            posts.unshift({
+                id: nextId++,
+                text: text,
+                likes: 0,
+                dislikes: 0,
+                comments: []
+            });
+            
+            document.getElementById("post-text").value = "";
+            showPosts();
+        }
+        
+        // Like a post
+        function likePost(id) {
+            let post = posts.find(p => p.id === id);
+            if(post) {
+                post.likes++;
+                showPosts();
+            }
+        }
+        
+        // Dislike a post
+        function dislikePost(id) {
+            let post = posts.find(p => p.id === id);
+            if(post) {
+                post.dislikes++;
+                showPosts();
+            }
+        }
+        
+        // Add a comment to a post
+        function addComment(id) {
+            let post = posts.find(p => p.id === id);
+            let commentText = document.getElementById("comment-" + id).value;
+            
+            if(post && commentText.trim() !== "") {
+                post.comments.push(commentText);
+                showPosts();
+            }
+        }
+        
+        // Initialize
+        showPosts();
+    </script>
+</body>
+</html>

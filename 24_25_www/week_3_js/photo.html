@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Photo Gallery</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .photo-card { border: 1px solid #ddd; margin-bottom: 20px; padding: 10px; }
+        .photo { width: 100%; height: 200px; background-color: #eee; display: flex; align-items: center; justify-content: center; }
+        .like-count { font-weight: bold; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Simple Photo Gallery</h1>
+    
+    <div id="gallery">
+        <div class="photo-card">
+            <div class="photo">Photo ID: 1</div>
+            <p>Photo description for ID 1</p>
+            <button onclick="likePhoto(1)">Like</button>
+            <span class="like-count" id="likes-1">0</span> likes
+        </div>
+        
+        <div class="photo-card">
+            <div class="photo">Photo ID: 2</div>
+            <p>Photo description for ID 2</p>
+            <button onclick="likePhoto(2)">Like</button>
+            <span class="like-count" id="likes-2">0</span> likes
+        </div>
+        
+        <div class="photo-card">
+            <div class="photo">Photo ID: 3</div>
+            <p>Photo description for ID 3</p>
+            <button onclick="likePhoto(3)">Like</button>
+            <span class="like-count" id="likes-3">0</span> likes
+        </div>
+    </div>
+
+    <script>
+        // Simple array to store likes for each photo
+        const photoLikes = {
+            1: 0,
+            2: 0,
+            3: 0
+        };
+        
+        // Function to like a photo
+        function likePhoto(id) {
+            // Increment the like count
+            photoLikes[id]++;
+            
+            // Update the display
+            document.getElementById('likes-' + id).textContent = photoLikes[id];
+        }
+    </script>
+</body>
+</html>
