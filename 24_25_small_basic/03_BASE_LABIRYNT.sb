@@ -1,0 +1,42 @@
+' Ustawienia okna i kolory
+GraphicsWindow.BackgroundColor = "White"
+GraphicsWindow.BrushColor = "Blue"
+GraphicsWindow.Title = "Maze Movement"
+
+' Parametry siatki
+cellSize = 40
+gridWidth = 10
+gridHeight = 10
+
+' Definicja labiryntu: 0 - droga, 1 - ściana
+row[1] = "0111111111"
+row[2] = "0000010001"
+row[3] = "1111010101"
+row[4] = "1000010101"
+row[5] = "1011110101"
+row[6] = "1000000101"
+row[7] = "1111111101"
+row[8] = "1000000001"
+row[9] = "1011111101"
+row[10]= "1000000000"
+
+' Rysowanie labiryntu
+Sub RysujLabirynt
+  For y = 1 To gridHeight
+    wzorzec = row[y]
+    For x = 1 To gridWidth
+      pole = Text.GetSubText(wzorzec, x, 1)
+      xPix = (x - 1) * cellSize
+      yPix = (y - 1) * cellSize
+
+      If (pole = "1") Then
+        GraphicsWindow.BrushColor = "Black"
+      Else
+        GraphicsWindow.BrushColor = "LightGray"
+      EndIf
+      GraphicsWindow.FillRectangle(xPix, yPix, cellSize, cellSize)
+    EndFor
+  EndFor
+EndSub
+
+RysujLabirynt()
