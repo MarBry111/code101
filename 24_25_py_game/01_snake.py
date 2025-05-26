@@ -30,6 +30,11 @@ JABLKO_X = 100
 JABLKO_Y = 100
 ROZMIAR = 50
 
+# załadujemy obrazek
+jablko_image = pygame.image.load("24_25_py_game/my_sprite.png").convert_alpha()
+# Przeskalujemy obrazek do odpowiedniego rozmiaru
+jablko_image = pygame.transform.scale(jablko_image, (ROZMIAR, ROZMIAR))
+
 # ============= Krok 6 =============
 # Główna pętla gry
 gra_dziala = True
@@ -62,8 +67,9 @@ while gra_dziala:
     
     # Parametry to: (gdzie, kolor, (x, y, szerokość, wysokość))
     pygame.draw.rect(ekran, ZIEOLONY, (X, Y, ROZMIAR, ROZMIAR))
-    pygame.draw.rect(ekran, ZOLTY, (JABLKO_X, JABLKO_Y, ROZMIAR, ROZMIAR))
-
+    # pygame.draw.rect(ekran, ZOLTY, (JABLKO_X, JABLKO_Y, ROZMIAR, ROZMIAR))
+    ekran.blit(jablko_image, (JABLKO_X, JABLKO_Y))
+    
     # -------- Pokazujemy wszystko na ekranie --------
     pygame.display.update()
     zegar.tick(FPS)
