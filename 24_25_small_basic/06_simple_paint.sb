@@ -1,0 +1,67 @@
+' Ustawienia okna
+GraphicsWindow.BackgroundColor = "Black"
+GraphicsWindow.PenColor = "White"
+GraphicsWindow.Width = 800
+GraphicsWindow.Height = 600
+
+' Tworzenie przycisków kolorów
+whiteBtn = Controls.AddButton("BIAŁY", 10, 10)
+redBtn = Controls.AddButton("CZERWONY", 70, 10)
+blueBtn = Controls.AddButton("NIEBIESKI", 160, 10)
+greenBtn = Controls.AddButton("ZIELONY", 250, 10)
+purpleBtn = Controls.AddButton("FIOLETOWY", 320, 10)
+yellowBtn = Controls.AddButton("ŻÓŁTY", 410, 10)
+orangeBtn = Controls.AddButton("POMARAŃCZOWY", 470, 10)
+
+' Przypisanie funkcji do obsługi przycisków
+Controls.ButtonClicked = ObslugaPrzyciskow
+
+' Obsługa myszy do rysowania
+GraphicsWindow.MouseDown = OnMouseDown
+GraphicsWindow.MouseMove = OnMouseMove
+
+' Obsługa przycisków kolorów
+Sub ObslugaPrzyciskow
+  OstatnioKlikniety = Controls.LastClickedButton
+  
+  If OstatnioKlikniety = whiteBtn Then
+    GraphicsWindow.PenColor = "White"
+    
+  ElseIf OstatnioKlikniety = redBtn Then
+    GraphicsWindow.PenColor = "Red"
+    
+  ElseIf OstatnioKlikniety = blueBtn Then
+    GraphicsWindow.PenColor = "Blue"
+    
+  ElseIf OstatnioKlikniety = greenBtn Then
+    GraphicsWindow.PenColor = "Green"
+    
+  ElseIf OstatnioKlikniety = purpleBtn Then
+    GraphicsWindow.PenColor = "Purple"
+    
+  ElseIf OstatnioKlikniety = yellowBtn Then
+    GraphicsWindow.PenColor = "Yellow"
+    
+  ElseIf OstatnioKlikniety = orangeBtn Then
+    GraphicsWindow.PenColor = "Orange"
+  EndIf
+EndSub
+
+' Funkcje rysowania (bez zmian z oryginalnego kodu)
+Sub OnMouseDown
+  prevX = GraphicsWindow.MouseX
+  prevY = GraphicsWindow.MouseY
+EndSub
+
+Sub OnMouseMove
+  x = GraphicsWindow.MouseX
+  y = GraphicsWindow.MouseY
+  
+  ' Rysuj tylko poniżej przycisków (y > 50)
+  If (Mouse.IsLeftButtonDown And y > 50) Then
+    GraphicsWindow.DrawLine(prevX, prevY, x, y)
+  EndIf
+  
+  prevX = x
+  prevY = y
+EndSub
