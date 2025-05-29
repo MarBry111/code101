@@ -1,0 +1,35 @@
+Zagadki SQL Noir
+
+Poziom 1: Prosty Select i Filtrowanie / Sortowanie
+
+    Zagadka 1: Kto jest Kim?
+        Opis: Detektyw Nowak potrzebuje listy wszystkich osób w miasteczku, które mają więcej niż 40 lat, aby sprawdzić, czy ktoś z nich pamięta dawne wydarzenia związane z Opuszczonym Teatrem. Posortuj listę od najstarszej osoby.
+
+    Zagadka 2: Co Zgubiono w Parku?
+        Opis: W Parku Miejskim ostatnio często giną różne rzeczy. Sprawdź, jakie przedmioty zostały znalezione właśnie tam.
+
+    Zagadka 3: Nerwowy Świadek
+        Opis: Listonosz Grzegorz Kaczmarek złożył zeznanie. Chcemy poznać jego treść.
+
+    Zagadka 4: Podejrzane Zachowanie
+        Opis: Detektyw chce przejrzeć wszystkie zeznania, które dotyczą Starej Biblioteki.
+
+    Zagadka 5: Wszyscy Podejrzani
+        Opis: Wyświetl listę wszystkich osób z ich zawodami, aby detektyw mógł szybko zorientować się, z kim ma do czynienia. Posortuj alfabetycznie według nazwiska.
+
+Poziom 2: Łączenie Tabel i Bardziej Złożone Warunki
+
+    Zagadka 6: Biblioteczne Tajemnice
+        Opis: Bibliotekarka Barbara Kowalska zgłosiła, że z gabloty w bibliotece zniknęły stare mapy. Wiemy, że w bibliotece znaleziono też złamane okulary. Kto mógł być w bibliotece i jest właścicielem jakiś przedmiotów tam znalezionych lub zgłoszonych?
+
+    Zagadka 7: Kto Widział Kogo?
+        Opis: Listonosz Grzegorz Kaczmarek zeznał, że widział Emila Lisa koło Starej Biblioteki. Chcemy zobaczyć pełne informacje o świadku i osobie, którą widział.
+
+    Zagadka 8: Zguby i Właściciele
+        Opis: Hanna Lewandowska zgubiła swój srebrny naszyjnik. Chcemy dowiedzieć się, czy są jakieś zeznania od niej i jakie przedmioty oficjalnie do niej należą.
+
+    Zagadka 9: Tajemnica Opuszczonego Teatru
+        Opis: Cukiernik Czesław Wiśniewski zeznał, że młoda kobieta o rudych włosach pytała o drogę do Opuszczonego Teatru. Ogrodniczka Felicja Wójcik widziała tam światło. Kto z naszych bohaterów ma rude włosy i mógł być tą osobą? Czy ta osoba złożyła jakieś zeznanie?
+
+    Zagadka 10: Co Łączy Emila i Bibliotekę?
+        Opis: Emil Lis był widziany koło Starej Biblioteki. Zgłosił też kradzież klucza. Czy jakiś przedmiot należący do Emila został znaleziony w bibliotece, lub czy jego zeznanie dotyczy biblioteki?
