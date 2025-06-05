@@ -7,7 +7,7 @@ pygame.init()
 
 # Ustawiamy rozmiar okna naszej gry
 ROZMIAR = 100
-N_KOLUMNY = 6
+N_KOLUMNY = 8
 N_WIERSZE = 8
 SZEROKOSC = N_KOLUMNY * ROZMIAR
 WYSOKOSC = N_WIERSZE * ROZMIAR
@@ -39,7 +39,6 @@ VY = 0
 jablko_image = pygame.image.load("24_25_py_game/my_sprite.png").convert_alpha()
 # Przeskalujemy obrazek do odpowiedniego rozmiaru
 jablko_image = pygame.transform.scale(jablko_image, (ROZMIAR, ROZMIAR))
-
 
 
 # ============= Krok 6 =============
