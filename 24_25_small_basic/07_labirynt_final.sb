@@ -1,0 +1,143 @@
+' Ustawienia okna i kolory
+GraphicsWindow.BackgroundColor = "White"
+GraphicsWindow.BrushColor = "Blue"
+GraphicsWindow.Title = "Maze Movement"
+GraphicsWindow.Width = 400
+GraphicsWindow.Height = 400
+
+' Parametry siatki
+cellSize = 40
+gridWidth = 10
+gridHeight = 10
+
+' Definicja labiryntu: 0 - droga, 1 - ściana
+row[1] = "0111111111"
+row[2] = "0000010001"
+row[3] = "1111010101"
+row[4] = "1000010101"
+row[5] = "1011110101"
+row[6] = "1000000101"
+row[7] = "1111111101"
+row[8] = "1000000001"
+row[9] = "1011111101"
+row[10]= "1000000000"
+
+' Rysowanie labiryntu
+Sub RysujLabirynt
+  For y = 1 To gridHeight
+    wzorzec = row[y]
+    For x = 1 To gridWidth
+      pole = Text.GetSubText(wzorzec, x, 1)
+      xPix = (x - 1) * cellSize
+      yPix = (y - 1) * cellSize
+
+      If (pole = "1") Then
+        GraphicsWindow.BrushColor = "Black"
+      Else
+        GraphicsWindow.BrushColor = "LightGray"
+      EndIf
+      GraphicsWindow.FillRectangle(xPix, yPix, cellSize, cellSize)
+    EndFor
+  EndFor
+EndSub
+
+RysujLabirynt()
+
+playerX = 0
+playerY = 0
+metaX = cellSize * 9
+metaY = cellSize * 9
+
+poziom = 1
+
+GraphicsWindow.BrushColor = "Blue"
+GraphicsWindow.FillRectangle(playerX, playerY, cellSize, cellSize)
+
+GraphicsWindow.BrushColor = "Red"
+GraphicsWindow.FillRectangle(metaX, metaY, cellSize, cellSize)
+
+GraphicsWindow.KeyDown = GraczPorusz
+
+Sub GraczPorusz
+  RysujLabirynt()
+  przycisk = GraphicsWindow.LastKey
+  
+  stareX = playerX
+  stareY = playerY
+  
+  If (przycisk = "Up") Then
+    playerY = playerY - cellSize
+  ElseIf (przycisk = "Down") Then
+    playerY = playerY + cellSize
+  ElseIf (przycisk = "Left") Then
+    playerX = playerX - cellSize
+  ElseIf (przycisk = "Right") Then
+    playerX = playerX + cellSize
+  EndIf
+  
+  kolor = GraphicsWindow.GetPixel(playerX, playerY) 
+  
+  If playerX < 0 Then
+    playerX = stareX
+  EndIf 
+  
+  If kolor = "#000000" Then
+    playerX = stareX
+    playerY = stareY
+    endif
+    
+  
+  GraphicsWindow.BrushColor = "Blue"
+  GraphicsWindow.FillRectangle(playerX, playerY, cellSize, cellSize)
+  
+  GraphicsWindow.BrushColor = "Red"
+  GraphicsWindow.FillRectangle(metaX, metaY, cellSize, cellSize)
+  
+  kolor = GraphicsWindow.GetPixel(playerX, playerY) 
+  
+  If kolor = "#FF0000" and poziom = 1 Then
+    poziom2()
+    poziom = 2
+  ElseIf kolor = "#FF0000" and poziom = 2 Then
+    poziom3()
+    poziom = 3
+  ElseIf kolor = "#FF0000" and poziom = 3 Then
+    GraphicsWindow.ShowMessage("Congratulations! You reached the end of the labyrinth!", "You Won!")
+  endif
+  
+EndSub
+
+Sub poziom2
+  playerX = cellSize * 4
+  playerY = cellSize * 4
+  metaX = cellSize * 5
+  metaY = cellSize * 8
+  row[1] = "1111111111"
+  row[2] = "1000000001"
+  row[3] = "1000000001"
+  row[4] = "1000000001"
+  row[5] = "1000000001"
+  row[6] = "1000000001"
+  row[7] = "1000000001"
+  row[8] = "1000000001"
+  row[9] = "1000000001"
+  row[10]= "1111111111"
+EndSub
+
+Sub poziom3
+  playerX = cellSize * 1
+  playerY = cellSize * 1
+  metaX = cellSize * 9
+  metaY = cellSize * 9
+  row[1] = "1111111111"
+  row[2] = "1000000001"
+  row[3] = "1111111101"
+  row[4] = "1000000001"
+  row[5] = "1011111111"
+  row[6] = "1000000001"
+  row[7] = "1111111101"
+  row[8] = "1000000001"
+  row[9] = "1011111111"
+  row[10]= "1000000000"
+EndSub
+  

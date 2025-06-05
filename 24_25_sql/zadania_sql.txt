@@ -1,5 +1,10 @@
 Zagadki SQL Noir
 
+Wykorzystaj https://sqliteonline.com/
+Najpierw wklej zawartosc pliku 00_01_create_db.sql i odpal kod
+Potem usuń wszystko i wklej zawartość 00_01_insert_data_into_db.sql i odpal kod
+Usuń  wszystko i mozesz pisać zapytania do tabeli.
+
 Poziom 1: Prosty Select i Filtrowanie / Sortowanie
 
     Zagadka 1: Kto jest Kim?
