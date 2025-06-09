@@ -35,6 +35,10 @@ JABLKO_Y = 2 * ROZMIAR
 VX = ROZMIAR
 VY = 0
 
+czcionka = pygame.font.Font(None, 74)
+tekst_surface = czcionka.render("Witaj w Pygame!", True, BIALY)
+tekst_rect = tekst_surface.get_rect(center=(SZEROKOSC // 2, WYSOKOSC // 2))
+
 # załadujemy obrazek
 jablko_image = pygame.image.load("24_25_py_game/my_sprite.png").convert_alpha()
 # Przeskalujemy obrazek do odpowiedniego rozmiaru
@@ -75,6 +79,8 @@ while gra_dziala:
     if X == JABLKO_X and Y == JABLKO_Y:
         punkty = punkty + 1
         print("Punkty:", punkty)
+        JABLKO_X = random.randint(0, N_KOLUMNY - 1) * ROZMIAR
+        JABLKO_Y = random.randint(0, N_WIERSZE - 1) * ROZMIAR
 
     if X < 0:
         X = SZEROKOSC - ROZMIAR
@@ -88,6 +94,7 @@ while gra_dziala:
 
     # -------- Rysujemy na ekranie --------
     ekran.fill(CZARNY)
+    ekran.blit(tekst_surface, tekst_rect)
     
     # Parametry to: (gdzie, kolor, (x, y, szerokość, wysokość))
     pygame.draw.rect(ekran, ZIEOLONY, (X, Y, ROZMIAR, ROZMIAR))
