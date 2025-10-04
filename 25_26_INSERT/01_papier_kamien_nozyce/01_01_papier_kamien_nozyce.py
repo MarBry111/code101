@@ -8,10 +8,8 @@ print("Witaj w grze papier-kamien-nozyce!")
 print("Zasady są proste:")
 
 # molziwe opcje
-opcje = ['papier', 'kamien', 'nozyce']
-punkty_gracza = 0
-punkty_komputera = 0
+opcje = ['p', 'k', 'n']
 
 # sama gra...
 while True:
-    
+    break
