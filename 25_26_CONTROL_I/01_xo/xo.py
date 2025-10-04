@@ -4,6 +4,7 @@ from xo_utils import *
 pygame.init()
 
 zegar = pygame.time.Clock()
+# 01 dodanie fontu
 font = pygame.font.Font(None, 55)
 ekran = pygame.display.set_mode((SZ, WY))
 
@@ -17,7 +18,7 @@ while gra_dziala:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             gra_dziala = False
-        # dodanie obslugi klikniecia myszka i zbierania koordynatow
+        # 01 dodanie obslugi klikniecia myszka i zbierania koordynatow
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
 
@@ -25,7 +26,7 @@ while gra_dziala:
             w = ktory_wiersz(y)
 
             # TODO 
-            # dodać check czy pole jest puste
+            # 02 dodać check czy pole jest puste
             # i tylko wtedy zmienić wartość oraz zmienić gracza
 
             plansza[w][k] = czyj_ruch
@@ -39,9 +40,10 @@ while gra_dziala:
                 print(p)
 
             # TODO
-            # sprawdzanie czy ktos wygral
+            # 02 sprawdzanie czy ktos wygral
 
     rysuj_plansze(ekran, plansza)
+    # 01 dodanie napisu czyja runda
     text = font.render(f"Ruch: {czyj_ruch}", True, (0, 0, 0))
     ekran.blit(text, (10, 10))
     
