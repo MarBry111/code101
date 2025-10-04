@@ -14,18 +14,17 @@ plansza = pusta_plansza.copy()
 czyj_ruch = 'x'
 gra_dziala = True
 while gra_dziala:
-    # -------- Sprawdzamy wydarzenia (np. kliknięcia) --------
     for event in pygame.event.get():
-        # Jeśli ktoś kliknie X na oknie
         if event.type == pygame.QUIT:
-            # Kończymy grę
             gra_dziala = False
+        # dodanie obslugi klikniecia myszka i zbierania koordynatow
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
 
             k = ktora_kolumna(x)
             w = ktory_wiersz(y)
 
+            # TODO 
             # dodać check czy pole jest puste
             # i tylko wtedy zmienić wartość oraz zmienić gracza
 
@@ -39,14 +38,15 @@ while gra_dziala:
             for p in plansza:
                 print(p)
 
+            # TODO
+            # sprawdzanie czy ktos wygral
+
     rysuj_plansze(ekran, plansza)
     text = font.render(f"Ruch: {czyj_ruch}", True, (0, 0, 0))
     ekran.blit(text, (10, 10))
     
-    # -------- Pokazujemy wszystko na ekranie --------
     pygame.display.update()
     zegar.tick(FPS)
 
-# Sprzątamy po sobie (wyłączamy Pygame)
 pygame.quit()
 quit()

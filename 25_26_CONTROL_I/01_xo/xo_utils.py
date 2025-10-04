@@ -26,10 +26,13 @@ def rysuj_plansze(ekran, plansza=None):
     pygame.draw.rect(ekran, CZARNY, (0, WY/3 - SZ_L/2, WY, SZ_L))
     pygame.draw.rect(ekran, CZARNY, (0, 2*WY/3 - SZ_L/2, WY, SZ_L))
 
-    # dodaj rysowanie x i o na podstawie planszy
+    # TODO
+    # dodaj rysowanie x i o na podstawie zmiennej plansza
 
 
+# TODO JA - wyjasnic o co chodzi i czemu taki kod wystarczy
 def ktora_kolumna(x):
+    """Zwraca numer kolumny (0, 1, 2) na podstawie współrzędnej x"""
     if x < SZ/3:
         return 0
     elif x < 2*SZ/3:
@@ -38,6 +41,7 @@ def ktora_kolumna(x):
         return 2
     
 def ktory_wiersz(y):
+    """Zwraca numer wiersza (0, 1, 2) na podstawie współrzędnej y"""
     if y < WY/3:
         return 0
     elif y < 2*WY/3:
