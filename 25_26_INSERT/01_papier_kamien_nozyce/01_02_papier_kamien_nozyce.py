@@ -7,8 +7,11 @@ import time
 print("Witaj w grze papier-kamien-nozyce!")
 print("Zasady są proste:")
 
-# molziwe opcje
+# mozliwe opcje
 opcje = ['p', 'k', 'n']
+
+# dodac punkty orazx check czy wprowadozno prawidlowa opcje
+# + upraszczanie kodu jak tutaj
 
 # sama gra...
 while True:
@@ -24,3 +27,4 @@ while True:
         break
     else:
         print("Przegrałeś! Spróbuj ponownie.")
+        break
