@@ -1,0 +1,48 @@
+-- Tworzenie tabeli
+CREATE TABLE gry_wideo (
+    id INTEGER PRIMARY KEY,
+    tytul TEXT,
+    gatunek TEXT,
+    platforma TEXT,
+    rok_wydania INTEGER,
+    ocena REAL,
+    cena REAL
+);
+
+-- Wypełnianie tabeli danymi (35 gier)
+INSERT INTO gry_wideo (tytul, gatunek, platforma, rok_wydania, ocena, cena) VALUES 
+('Minecraft', 'Sandbox', 'PC', 2011, 9.5, 119.00),
+('Fortnite', 'Battle Royale', 'PC', 2017, 8.0, 0.00),
+('GTA V', 'Akcja', 'PS5', 2013, 9.0, 99.00),
+('Among Us', 'Strategia', 'PC', 2018, 7.5, 15.00),
+('FIFA 24', 'Sport', 'Xbox', 2023, 6.5, 299.00),
+('Zelda: BOTW', 'Przygodowa', 'Switch', 2017, 9.8, 249.00),
+('Super Mario', 'Platformowa', 'Switch', 2017, 9.2, 199.00),
+('Roblox', 'Sandbox', 'PC', 2006, 8.5, 0.00),
+('CS:GO', 'Strzelanka', 'PC', 2012, 8.8, 0.00),
+('Sims 4', 'Symulator', 'PC', 2014, 7.0, 0.00),
+('God of War', 'Akcja', 'PS5', 2018, 9.7, 149.00),
+('Spider-Man', 'Akcja', 'PS5', 2018, 9.3, 199.00),
+('Pokemon Scarlet', 'RPG', 'Switch', 2022, 7.8, 249.00),
+('Halo Infinite', 'Strzelanka', 'Xbox', 2021, 8.2, 0.00),
+('Cyberpunk 2077', 'RPG', 'PC', 2020, 7.9, 129.00),
+('Wiedźmin 3', 'RPG', 'PC', 2015, 9.9, 99.00),
+('Rocket League', 'Sport', 'PC', 2015, 8.7, 0.00),
+('Fall Guys', 'Zręcznościowa', 'PC', 2020, 7.6, 0.00),
+('Mario Kart 8', 'Wyścigi', 'Switch', 2014, 9.4, 249.00),
+('Animal Crossing', 'Symulator', 'Switch', 2020, 9.0, 249.00),
+('Call of Duty', 'Strzelanka', 'Xbox', 2022, 7.2, 299.00),
+('Assassins Creed', 'Przygodowa', 'PS5', 2020, 8.5, 199.00),
+('Tetris', 'Logiczna', 'Switch', 1984, 9.1, 29.00),
+('Pac-Man', 'Zręcznościowa', 'PC', 1980, 8.9, 19.00),
+('Genshin Impact', 'RPG', 'PC', 2020, 8.6, 0.00),
+('League of Legends', 'Strategia', 'PC', 2009, 8.3, 0.00),
+('Valorant', 'Strzelanka', 'PC', 2020, 8.1, 0.00),
+('Overwatch 2', 'Strzelanka', 'PC', 2022, 7.4, 0.00),
+('Diablo IV', 'RPG', 'PC', 2023, 8.0, 299.00),
+('Starfield', 'RPG', 'Xbox', 2023, 7.5, 299.00),
+('Sonic', 'Platformowa', 'Switch', 2022, 7.3, 199.00),
+('Kirby', 'Platformowa', 'Switch', 2022, 8.8, 249.00),
+('Forza Horizon', 'Wyścigi', 'Xbox', 2021, 9.2, 249.00),
+('Gran Turismo', 'Wyścigi', 'PS5', 2022, 8.4, 299.00),
+('Street Fighter', 'Bijatyka', 'PC', 2023, 8.2, 249.00);

@@ -1,0 +1,12 @@
+Poziom 1: Podstawy
+1.  Wyświetl tytuły wszystkich gier, które są na platformie Switch.
+2.  Wyświetl wszystkie dane o grach, które kosztują 0 złotych (są darmowe).
+Poziom 2: Sortowanie
+3.  Wyświetl wszystkie gry, ale posortuj je od najdroższej do najtańszej.
+4.  Wyświetl wszystkie gry, ale posortuj je od najnowszej (najwyższy rok) do najstarszej.
+Poziom 3: Limit i Top Listy
+5.  Wyświetl tylko 5 najlepszych gier (najwyższa ocena).
+6.  Wyświetl 3 najtańsze płatne gry (cena większa niż 0, posortowane rosnąco).
+Poziom 4: Detektyw (WHERE + AND)
+7.  Znajdź gry, które są gatunku Strzelanka ORAZ są na platformie PC.
+8.  Znajdź gry wydane po roku 2020, które mają ocenę wyższą niż 8.0.
