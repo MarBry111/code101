@@ -1,0 +1,119 @@
+Skorzystaj z https://sqliteonline.com/
+Wklej na pcozątku zawartosc pliku create_db.sql, naciśnij run i z lewej storny w powinny pojawić się tabele pokemony, pokemon_ataki itp
+
+Jeśli są widoczne to usuń cąły tekst z okna i przejdź do zadań.
+
+TABELE W BAZIE DANYCH:
+  - trenerzy     (id, imie, wiek, miasto, odznaki)
+  - pokemony     (id, nazwa, typ, hp, atak, obr, trener_id)
+  - ataki        (id, nazwa, typ, moc, pp)
+  - pokemon_ataki(pokemon_id, atak_id)
+  - walki        (id, data, zwyciezca_id, przegrany_id, arena)
+
+================================================================
+  POZIOM 1 — PIERWSZE KROKI (SELECT, FROM, WHERE)
+================================================================
+
+Zadanie 1.
+  Profesor Oak prosi Cię o listę wszystkich trenerów.
+  Wypisz ich imię, wiek i miasto, z którego pochodzą.
+
+Zadanie 2.
+  Chcesz zobaczyć tylko pokémony ogniste.
+  Wypisz nazwę, HP i atak wszystkich pokémonów typu Ogień.
+
+Zadanie 3.
+  Szukasz mocnych ataków do walki.
+  Wypisz nazwę i moc wszystkich ataków, których moc
+  jest większa lub równa 90.
+
+Zadanie 4.
+  Twój przyjaciel pyta, które pokémony są bardzo wytrzymałe.
+  Wypisz nazwę i obronę tych pokémonów, których obrona
+  jest większa niż 80.
+
+Zadanie 5.
+  Znajdź wszystkich trenerów, którzy mają 8 lub więcej odznak.
+  Wypisz ich imię i liczbę odznak.
+
+================================================================
+  POZIOM 2 — SORTOWANIE I WARUNKI (ORDER BY, LIMIT, AND, OR)
+================================================================
+
+Zadanie 6.
+  Chcesz poznać top 5 najsilniejszych pokémonów w ataku.
+  Wypisz ich nazwę i wartość ataku, posortuj od największego.
+
+Zadanie 7.
+  Szukasz pokémonów z Team Rocket — należą do Jessie lub Jamesa
+  (ich trener_id to 5 i 6).
+  Wypisz nazwy i typy tych pokémonów.
+
+Zadanie 8.
+  Który atak ma największą moc, ale można go użyć
+  co najwyżej 10 razy (pp <= 10)?
+  Wypisz jego nazwę, moc i pp. Posortuj po mocy malejąco.
+
+Zadanie 9.
+  Ash szuka pokémona do obrony przed atakami wodnymi.
+  Wypisz wszystkie pokémony typu Elektryczny lub Trawa,
+  posortuj je po ataku malejąco.
+
+================================================================
+  POZIOM 3 — ŁĄCZENIE TABEL (JOIN)
+================================================================
+
+Zadanie 10.
+  Chcesz wiedzieć, kto jest właścicielem każdego pokémona.
+  Wypisz imię trenera oraz nazwę i typ jego pokémona.
+  Posortuj po imieniu trenera.
+
+Zadanie 11.
+  Misty zbiera informacje o pokémonach wodnych.
+  Pokaż imię trenera i nazwę pokémona tylko dla pokémonów
+  typu Woda.
+
+Zadanie 12.
+  Chcesz zobaczyć, jakie ataki zna Pikachu.
+  Wypisz nazwę ataku i jego moc.
+  (Wskazówka: złącz 3 tabele —
+   pokemony → pokemon_ataki → ataki)
+
+Zadanie 13.
+  Wypisz wszystkie walki — pokaż datę, imię zwycięzcy
+  i imię przegranego oraz arenę, na której walczyli.
+  (Wskazówka: użyj dwóch JOINów na tabelę trenerzy,
+   np. trenerzy AS w  i  trenerzy AS p)
+
+================================================================
+  POZIOM 4 — MISJE DETEKTYWISTYCZNE (JOIN + WHERE razem)
+================================================================
+
+Zadanie 14.
+  Team Rocket chce ukraść najsilniejsze pokémony!
+  Znajdź wszystkie pokémony, których atak jest większy
+  niż 80 ORAZ które należą do trenera z miasta Pallet Town.
+  Wypisz imię trenera, nazwę pokémona i jego atak.
+
+Zadanie 15.
+  Brock organizuje turniej tylko dla skalnych pokémonów.
+  Wypisz imię trenera i nazwę pokémona dla wszystkich pokémonów typu Skała.
+
+  Następnie sprawdź — czy Brock ma w swoim zespole pokémona, który zna atak "Rock Throw"?
+  Wypisz jego nazwę i ten atak.
+  (To są dwa osobne zapytania!)
+
+Zadanie 16. — FINAŁOWE
+  W tajemniczej walce na Indigo Plateau ktoś użył ataku
+  o mocy dokładnie 150. Twoim zadaniem jest ustalić kto!
+
+  Krok 1. Który atak ma moc 150? Znajdź jego nazwę.
+  Krok 2. Który pokémon zna ten atak?
+          Złącz tabele: ataki → pokemon_ataki → pokemony.
+  Krok 3. Do którego trenera należy ten pokémon?
+          Dodaj kolejny JOIN z tabelą trenerzy.
+  Krok 4. Czy ten trener wygrał walkę na arenie
+          "Indigo Plateau"? Sprawdź w tabeli walki.
+
+  Na końcu wypisz: imię trenera, nazwę pokémona
+  i nazwę ataku — to Twój podejrzany!
